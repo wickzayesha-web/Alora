@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alora - Magical Kids Events</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Comic Sans MS', 'Trebuchet MS', sans-serif;
+            overflow-x: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #ec4899 0%, #8b5cf6 50%, #3b82f6 100%);
+            color: white;
+            padding: 6rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.3) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: sparkle 20s linear infinite;
+        }
+
+        @keyframes sparkle {
+            0% { transform: rotate(0deg) scale(1); }
+            100% { transform: rotate(360deg) scale(1); }
+        }
+
+        h1 {
+            font-size: 6rem;
+            margin-bottom: 1rem;
+            text-shadow: 4px 4px 8px rgba(0,0,0,0.3), 0 0 40px rgba(255,255,255,0.3);
+            animation: glow 3s ease-in-out infinite alternate;
+            position: relative;
+            z-index: 1;
+            letter-spacing: 20px;
+            font-weight: 300;
+            font-family: 'Georgia', serif;
+            text-transform: uppercase;
+        }
+
+        @keyframes glow {
+            0% { text-shadow: 4px 4px 8px rgba(0,0,0,0.3), 0 0 40px rgba(255,255,255,0.3); }
+            100% { text-shadow: 4px 4px 8px rgba(0,0,0,0.3), 0 0 60px rgba(255,255,255,0.5), 0 0 80px rgba(236, 72, 153, 0.4); }
+        }
+
+        .tagline {
+            font-size: 1.6rem;
+            font-style: italic;
+            position: relative;
+            z-index: 1;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            animation: fadeInUp 1s ease;
+            font-weight: 300;
+            letter-spacing: 3px;
+            font-family: 'Georgia', serif;
+        }
+
+        @keyframes fadeInUp {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        nav {
+            background: linear-gradient(90deg, #ec4899, #a855f7, #3b82f6);
+            padding: 1rem;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 1.5rem;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+
+        nav a:hover {
+            transform: scale(1.1);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        nav {
+            background: linear-gradient(90deg, #ec4899, #a855f7, #3b82f6);
+            padding: 1rem;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 1.5rem;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+
+        nav a:hover {
+            transform: scale(1.1);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .event-hero {
+            background: linear-gradient(135deg, #fce7f3 0%, #ddd6fe 50%, #dbeafe 100%);
+            border-radius: 20px;
+            padding: 3rem;
+            margin: 2rem 0;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .event-hero::before {
+            content: '🎄❄️🎅⛄🎁';
+            position: absolute;
+            top: 20px;
+            left: 0;
+            right: 0;
+            font-size: 3rem;
+            opacity: 0.2;
+            animation: slide 20s linear infinite;
+        }
+
+        @keyframes slide {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        .event-hero h2 {
+            font-size: 3rem;
+            color: #ec4899;
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        .event-date {
+            font-size: 1.5rem;
+            color: #8b5cf6;
+            font-weight: bold;
+            margin: 1rem 0;
+        }
+
+        .register-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #ec4899, #a855f7);
+            color: white;
+            padding: 1.2rem 3rem;
+            font-size: 1.3rem;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 50px;
+            margin-top: 1.5rem;
+            box-shadow: 0 6px 20px rgba(236, 72, 153, 0.4);
+            transition: all 0.3s;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .register-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(236, 72, 153, 0.6);
+        }
+
+        .past-events {
+            margin: 3rem 0;
+        }
+
+        .past-events h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #8b5cf6;
+            margin-bottom: 2rem;
+        }
+
+        .event-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            border: 3px solid #ec4899;
+        }
+
+        .event-card h3 {
+            color: #3b82f6;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .event-card p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #555;
+        }
+
+        .contact-section {
+            background: linear-gradient(135deg, #ec4899 0%, #8b5cf6 50%, #3b82f6 100%);
+            color: white;
+            padding: 3rem;
+            border-radius: 20px;
+            margin: 3rem 0;
+            text-align: center;
+        }
+
+        .contact-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .contact-info {
+            font-size: 1.2rem;
+            line-height: 2.5;
+        }
+
+        .contact-info a {
+            color: white;
+            text-decoration: none;
+            border-bottom: 2px solid white;
+            transition: all 0.3s;
+        }
+
+        .contact-info a:hover {
+            color: #fce7f3;
+            border-color: #fce7f3;
+        }
+
+        footer {
+            background: linear-gradient(90deg, #ec4899, #a855f7, #3b82f6);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 3rem; letter-spacing: 4px; }
+            .tagline { font-size: 1.2rem; }
+            .event-hero h2 { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1>ALORA</h1>
+        <p class="tagline">Creating Magical Moments for Kids</p>
+    </header>
+
+    <div class="container">
+        <div class="event-hero" id="christmas">
+            <h2>🎄 Kids Christmas Party 2024! 🎅</h2>
+            <p class="event-date">Join us for a magical celebration!</p>
+            <p style="font-size: 1.2rem; margin: 1.5rem 0; color: #555;">
+                Get ready for an unforgettable Christmas celebration filled with games, 
+                Santa visits, gifts, face painting, and so much more! 
+                Bring your little ones for a day of festive fun and holiday magic! ✨
+            </p>
+            <a href="#" class="register-btn">🎁 REGISTER NOW 🎁</a>
+        </div>
+
+        <div class="past-events" id="past-events">
+            <h2>✨ Our Recent Events ✨</h2>
+            <div class="event-card">
+                <h3>🎪 Children's Day Celebration</h3>
+                <p><strong>Venue:</strong> Aitken Spence</p>
+                <p>
+                    We had an amazing time celebrating Children's Day at Aitken Spence! 
+                    The event was packed with exciting activities, interactive games, 
+                    entertainment, and lots of smiles. Our little guests enjoyed bouncy castles, 
+                    art stations, magic shows, and delicious treats. It was a day filled with 
+                    laughter, joy, and wonderful memories! Thank you to all the families who 
+                    joined us and made it such a special celebration! 🎉
+                </p>
+            </div>
+        </div>
+
+        <div class="contact-section" id="contact">
+            <h2>📞 Get in Touch!</h2>
+            <div class="contact-info">
+                <p>📧 Email: <a href="mailto:Ayeshawickz23@gmail.com">Ayeshawickz23@gmail.com</a></p>
+                <p>📱 Phone: <a href="tel:+94776142343">+94 77 614 2343</a></p>
+                <p>📍 Location: Negombo, Sri Lanka</p>
+                <p>💬 Follow us on social media for updates and event photos!</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Alora Kids Events | Making Every Celebration Magical ✨</p>
+    </footer>
+</body>
+</html>
